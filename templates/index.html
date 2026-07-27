@@ -1,34 +1,131 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WhisperLink</title>
+{% extends "base.html" %}
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
-</head>
-<body>
+{% block title %}
+Home | WhisperLink
+{% endblock %}
 
-<nav>
-    <h2>🔐 WhisperLink</h2>
+{% block content %}
 
-    <a href="#">Create Secret</a>
-</nav>
+<header>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            WhisperLink
+        </div>
+
+        <div class="nav-links">
+            <a href="#">How it Works</a>
+            <a href="#">GitHub</a>
+            <a href="#">About</a>
+        </div>
+
+        <a href="/create" class="nav-btn">
+            Create Secret
+        </a>
+
+    </nav>
+
+</header>
 
 <section class="hero">
 
-    <h1>Share Secrets.<br>Only Once.</h1>
+    <div class="hero-left">
 
-    <p>
-        Create encrypted one-time secret links that disappear forever
-        after being viewed.
-    </p>
+        <span class="badge">
+            Built for private conversations.
+        </span>
 
-    <button>Create Secret</button>
+        <h1>
+            Your Secret.<br>
+            One View.<br>
+            Gone Forever.
+        </h1>
+
+        <p>
+            Create secure links that automatically delete themselves
+            after being opened. No accounts. No hassle.
+        </p>
+
+        <div class="buttons">
+            <button class="primary" onclick="window.location.href='/create'">
+                Create Secret
+            </button>
+
+            <button class="secondary">
+                View Demo
+            </button>
+        </div>
+
+    </div>
+
+    <div class="hero-right">
+
+        <div class="preview">
+
+            <div class="preview-header">
+                Secret Preview
+            </div>
+
+            <div class="secret-box">
+                **********************
+            </div>
+
+            <div class="row">
+                <span>Status</span>
+                <strong>Waiting to be viewed</strong>
+            </div>
+
+            <div class="row">
+                <span>Expires</span>
+                <strong>1 Hour</strong>
+            </div>
+
+            <div class="row">
+                <span>Link</span>
+                <strong>whisper.link/X8D2K</strong>
+            </div>
+
+            <button class="copy-btn">
+                Copy Link
+            </button>
+
+        </div>
+
+    </div>
 
 </section>
-</body>
-</html>
+
+<section class="how">
+
+    <h2>How it Works</h2>
+
+    <div class="steps">
+
+        <div class="step">
+            <span>01</span>
+            <h3>Write</h3>
+            <p>Create your confidential message.</p>
+        </div>
+
+        <div class="step">
+            <span>02</span>
+            <h3>Share</h3>
+            <p>Send the generated secure link.</p>
+        </div>
+
+        <div class="step">
+            <span>03</span>
+            <h3>Disappear</h3>
+            <p>The secret is destroyed forever after being viewed.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    © 2026 WhisperLink • Built with Flask
+</footer>
+
+{% endblock %}
